@@ -13,11 +13,9 @@ public class BookingController {
     Logger log = LoggerFactory.getLogger(BookingController.class);
 
 
-
     @Autowired
     @Qualifier("bookingServiceImpl")
     private BookingService bookingService;
-
 
 
 }

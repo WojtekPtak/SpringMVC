@@ -1,42 +1,18 @@
 
 
-
-
 <html>
 <head><title>Users manager</title>
 
-
-
-<style>
-body, input {
-	font-family: Calibri, Arial;
-	margin: 0px;
-	padding: 0px;
-}
-#header h2 {
-	color: white;
-	background-color: #3275A8;
-	height: 50px;
-	padding: 5px 0 0 5px;
-	font-size: 20px;
-}
-
-.datatable {margin-bottom:5px;border:1px solid #eee;border-collapse:collapse;width:400px;max-width:100%;font-family:Calibri}
-.datatable th {padding:3px;border:1px solid #888;height:30px;background-color:#B2D487;text-align:center;vertical-align:middle;color:#444444}
-.datatable tr {border:1px solid #888}
-.datatable tr.odd {background-color:#eee}
-.datatable td {padding:2px;border:1px solid #888}
-#content { padding 5px; margin: 5px; text-align: center}
-
-fieldset { width: 300px; padding: 5px; margin-bottom: 0px; }
-legend { font-weight: bold; }
-</style>
-
+<#include "/common/style.ftl">
+    </head>
 <body>
 <div id="header">
 <H2>
     Users manager
 </H2>
+    <H3>
+    <A href="/index">Main menu</A></BR>
+    </H3>
 </div>
 
 <div id="content">
@@ -44,25 +20,41 @@ legend { font-weight: bold; }
   <fieldset>
     <legend>User registration</legend>
     <form name="user" action="/user_register" method="post">
-        Email: <input type="text" name="email" />	<br/>
         Name: <input type="text" name="name" />	<br/>
+        Email: <input type="text" name="email" />	<br/>
         Birthday: <input type="date" name="birthday" />	<br/>
         <input type="submit" value="   Register   " />
     </form>
 </fieldset>
 
+    <h4>Load users from CSV file</h4>
+    <form method="post" action="/uploadUsers" enctype="multipart/form-data">
+        <input type="file" name="file" value="CSV"/>
+        <input type="submit" value="Load" />
+    </form>
+
 
   <br/>
+
+
+
+<#if model["userList"] ??>
+  <#assign userList = model["userList"]>
   <table class="datatable">
-  	<tr>
-  		<th>Email</th>  <th>Name</th>  <th>Birthday</th>
-  	</tr>
-    <#list model["userList"] as user>
-	  	<tr>
-	  		<td>${user.email}</td> <td>${user.name}</td> <td>${user.birthday}</td>
-	  	</tr>
+  	<tr>  <th>Name</th>    <th>Email</th>    <th>Birthday</th>  </tr>
+
+    <#list userList as user>
+	  	<tr>  <td>${user.name}</td>    <td>${user.email}</td>   <td>${user.birthday!'N/A'}</td>  </tr>
     </#list>
   </table>
+
+<#else>
+    <div id="error">
+    <h3 >
+        No users!
+    </h3>
+    </div>
+</#if>
 
 </div>
 </body>

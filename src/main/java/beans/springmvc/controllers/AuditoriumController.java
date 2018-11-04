@@ -2,7 +2,7 @@ package beans.springmvc.controllers;
 
 import beans.models.Auditorium;
 import beans.services.AuditoriumService;
-import beans.springmvc.views.PdfView;
+import beans.springmvc.views.AuditoriumPdfView;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,21 +30,21 @@ public class AuditoriumController {
         return "auditorium_list";
     }
 
-    @RequestMapping(value = "/auditorium/{name}", method = RequestMethod.GET)
-    public String getAuditoriumByName(@ModelAttribute("model") ModelMap model, @PathVariable final String name) {
+    @RequestMapping(value = "/auditorium", method = RequestMethod.GET)
+    public String getAuditoriumByName(@ModelAttribute("model") ModelMap model, @RequestParam("name") final String name) {
         log.info("Show auditorium '{}'", name);
         Auditorium auditorium = auditoriumService.getByName(name);
-        if(auditorium != null) {
+        if (auditorium != null) {
             model.addAttribute("auditoriumList", Arrays.asList(auditorium));
         }
         return "auditorium_list";
     }
 
-    // TODO: pdf test!
-    @RequestMapping(value = "/pdf_test", method = RequestMethod.GET, headers = "Accept=application/pdf")
+    // TODO: only for test used here...
+    @RequestMapping(value = "/auditorium/pdf_all", method = RequestMethod.GET, headers = "Accept=application/pdf")
     @ResponseBody
     public ModelAndView getPdfList(@ModelAttribute("model") ModelMap model) {
-        model.addAttribute("wordList", Arrays.asList("fsfsgdfs","sfgsgs","sgsgsg","sgsgsgf"));
-        return new ModelAndView(new PdfView(), model);
+        model.addAttribute("auditoriumList", auditoriumService.getAuditoriums());
+        return new ModelAndView(new AuditoriumPdfView(), model);
     }
 }

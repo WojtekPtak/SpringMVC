@@ -16,14 +16,14 @@ import java.io.IOException;
 import java.io.InputStream;
 
 @Controller
-public class FileUploadController implements HandlerExceptionResolver {
+public class FileUploadController  {
 
-    @RequestMapping(value = "/uploadFile", method = RequestMethod.GET)
+    @RequestMapping(value = "/uploadUsers", method = RequestMethod.GET)
     public String getImageView() {
         return "file";
     }
 
-    @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
+    @RequestMapping(value = "/uploadUsers", method = RequestMethod.POST)
     public ModelAndView uploadFile(MultipartFile file) throws IOException {
         ModelAndView modelAndView = new ModelAndView("file");
 
@@ -39,17 +39,8 @@ public class FileUploadController implements HandlerExceptionResolver {
         f.close();
 
         modelAndView.getModel()
-            .put("message", "File uploaded successfully!");
+                .put("message", "File uploaded successfully!");
         return modelAndView;
     }
 
-    @Override
-    public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object object, Exception exc) {
-        ModelAndView modelAndView = new ModelAndView("file");
-        if (exc instanceof MaxUploadSizeExceededException) {
-            modelAndView.getModel()
-                .put("message", "File size exceeds limit!");
-        }
-        return modelAndView;
-    }
 }

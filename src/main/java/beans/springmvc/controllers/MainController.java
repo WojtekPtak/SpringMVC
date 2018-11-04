@@ -25,5 +25,6 @@ public class MainController {
 
     @RequestMapping(value = "favicon.ico", method = RequestMethod.GET)
     @ResponseBody
-    void favicon() {}
+    void favicon() {
+    }
 }
