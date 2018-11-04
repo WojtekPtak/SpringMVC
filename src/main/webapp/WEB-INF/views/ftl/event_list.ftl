@@ -37,12 +37,23 @@
 
     <fieldset>
         <legend>Event registration</legend>
-        <form name="car" action="user_register" method="post">
-            Name: <input type="text" name="email" />	<br/>
-            Rate: <input type="text" name="name" />	<br/>
-            Base price: <input type="double" name="basePrice" />	<br/>
-            Date: <input type="datetime-local" name="dateTime" />	<br/>
-            Auditorium: <input type="text" name="auditorium" />	<br/>
+        <form name="event" action="/event_register" method="post">
+            Name: <input type="text" name="name" />
+                <br/>
+            Rate: <select name="rate">
+                    <#list model["eventRates"] as rate>
+	  	            <option value="${rate}">${rate}</option>
+                    </#list>
+                    </select>
+                <br/>
+            Base price: <input type="double" name="basePrice" />
+                <br/>
+            Auditorium: <select name="auditorium">
+                    <#list model["audList"] as ad>
+                        <option value="${ad}">${ad.getName()}</option>
+                    </#list>
+                    </select>
+                <br/>
             <input type="submit" value="   Register   " />
         </form>
     </fieldset>

@@ -1,6 +1,5 @@
 package beans.springmvc.controllers;
 
-import beans.models.Event;
 import beans.models.User;
 import beans.services.UserService;
 import org.slf4j.Logger;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalUnit;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -63,10 +61,11 @@ public class UserController {
     @RequestMapping(value = "/user_register", method = RequestMethod.POST)
     public String addUser(@ModelAttribute("user") User user) {
         log.info("Register new user ?");
-        user.setBirthday(LocalDate.now().minus(40, ChronoUnit.YEARS));
         if (!user.getName().isEmpty()) {
             log.info("Register new user {}", user);
-            userService.register(user);
+            if(userService.getUsersByName(user.getName()).isEmpty()) {
+                userService.register(user);
+            }
         }
         return "redirect:/users";
     }

@@ -1,3 +1,7 @@
+
+
+
+
 <html>
 <head><title>Users manager</title>
 
@@ -42,6 +46,7 @@ legend { font-weight: bold; }
     <form name="user" action="/user_register" method="post">
         Email: <input type="text" name="email" />	<br/>
         Name: <input type="text" name="name" />	<br/>
+        Birthday: <input type="date" name="birthday" />	<br/>
         <input type="submit" value="   Register   " />
     </form>
 </fieldset>

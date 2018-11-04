@@ -1,5 +1,7 @@
 package beans.models;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDate;
 
 /**
@@ -13,6 +15,9 @@ public class User {
     private long      id;
     private String    email;
     private String    name;
+
+    // TODO: problem to solve: without it (and only with specified date format!) binding date in FreeMarker causes error :/
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthday;
 
     public User() {
