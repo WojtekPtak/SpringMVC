@@ -15,3 +15,7 @@ PDF view only as a test in Auditorium list
 HandlerExceptionResolver used in project
 
 slf4j logger doesn't work for the time being
+
+TODO:
+- add all Booking features!
+- exception page should return to previous page not to home

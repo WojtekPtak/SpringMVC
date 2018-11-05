@@ -51,7 +51,6 @@ public class Main {
         userService.getUsersByName(name).forEach(System.out:: println);
         System.out.println();
 
-
         Event event1 = eventService.create(
                 new Event(eventName, Rate.HIGH, 60, LocalDateTime.of(LocalDate.of(2016, 2, 5), LocalTime.of(9, 0, 0)),
                           blueHall));

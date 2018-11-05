@@ -24,10 +24,12 @@ import java.util.Spliterator;
 import java.util.Spliterators;
 import java.util.stream.StreamSupport;
 
+
+//TODO: use multipart to load more than one file at once
 @Controller
 @ComponentScan("util")
 @RequestMapping("/data")
-public class DataUploadController  {
+public class DataUploadController {
     Logger log = LoggerFactory.getLogger(DataUploadController.class);
 
 
@@ -41,14 +43,14 @@ public class DataUploadController  {
 
     @RequestMapping(value = "/csv/{fileName:.+}", method = RequestMethod.POST)
     public String downloadUsersFile(HttpServletRequest req, HttpServletResponse resp,
-            @PathVariable("fileName") String fileName) throws IOException {
+                                    @PathVariable("fileName") String fileName) throws IOException {
 
         String dataDirectory = req.getServletContext().getRealPath("/WEB-INF/data/csv/");
         Path csvFilePath = Paths.get(dataDirectory, fileName);
         log.info("Absolute path of CSV file is: " + csvFilePath);
 
-        File csvFile =csvFilePath.toFile();
-        if(csvFile.exists()) {
+        File csvFile = csvFilePath.toFile();
+        if (csvFile.exists()) {
             loadUsersData(csvFile);
         } else {
             log.error("Requested CSV file not found!");
@@ -58,10 +60,10 @@ public class DataUploadController  {
     }
 
     private void loadUsersData(File csvFile) {
-        try (MappingIterator<User> reader = this.csvFileReader.open(csvFile, User.class)) {
+        try (MappingIterator<User> reader = csvFileReader.open(csvFile, User.class)) {
             StreamSupport
-                .stream(Spliterators.spliteratorUnknownSize(reader, Spliterator.ORDERED), false)
-                .forEach( userService::register);
+                    .stream(Spliterators.spliteratorUnknownSize(reader, Spliterator.ORDERED), false)
+                    .forEach(userService::register);
             log.info("Number of Users after operation: " + userService.getAllUsers().size());
         } catch (IOException e) {
             log.error(e.getMessage());

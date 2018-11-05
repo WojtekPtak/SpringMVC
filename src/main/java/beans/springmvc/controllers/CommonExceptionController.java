@@ -23,6 +23,10 @@ public class CommonExceptionController implements HandlerExceptionResolver {
         sb.append(String.format("<B>Request URI:</B> %s</BR>", request.getRequestURI()));
         sb.append(String.format("<B>Status:</B> %d</BR>", response.getStatus()));
         modelAndView.getModel().put("description", sb.toString());
+
+        // TODO: use it in exception.ftl to back to previous page not to homepage!
+        String referer = request.getHeader("Referer");
+        modelAndView.getModel().put("referer", referer);
         return modelAndView;
     }
 }
