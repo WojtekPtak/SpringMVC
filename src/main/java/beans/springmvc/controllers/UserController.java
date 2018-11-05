@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -41,7 +40,7 @@ public class UserController {
         log.info("Show user '{}'", name);
         List<User> users = userService.getUsersByName(name);
         model.addAttribute("userList", users);
-        return "user_main";
+        return "user_search";
     }
 
     @RequestMapping(value = "/user/email/", method = RequestMethod.GET)
@@ -53,7 +52,8 @@ public class UserController {
             users.add(user);
             model.addAttribute("userList", users);
         }
-        return "user_main";
+        model.addAttribute("userList");
+        return "user_search";
     }
 
     @RequestMapping(value = "/user_register", method = RequestMethod.POST)

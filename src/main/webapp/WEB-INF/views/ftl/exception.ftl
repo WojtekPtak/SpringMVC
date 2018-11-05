@@ -7,9 +7,7 @@
 <body>
 <div id="header">
     <h2> Exception Report </h2>
-    <h3>
-        <a href="/index">Main menu</a><br>
-    </h3>
+<#include "/common/back_home.ftl">
 </div>
 
 

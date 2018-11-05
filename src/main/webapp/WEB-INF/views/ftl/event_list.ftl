@@ -7,9 +7,7 @@
     <H2>
         Users manager
     </H2>
-    <H3>
-        <A href="/index">Main menu</A></BR>
-    </H3>
+<#include "/common/back_home.ftl">
 </div>
 
 <div id="content">

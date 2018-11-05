@@ -10,9 +10,7 @@
 <H2>
     Users manager
 </H2>
-    <H3>
-    <A href="/index">Main menu</A></BR>
-    </H3>
+<#include "/common/back_home.ftl">
 </div>
 
 <div id="content">
@@ -27,12 +25,12 @@
     </form>
 </fieldset>
 
-    <h4>Load users from CSV file</h4>
-    <form method="post" action="/uploadUsers" enctype="multipart/form-data">
-        <input type="file" name="file" value="CSV"/>
-        <input type="submit" value="Load" />
+    <div id="content2">
+    <h4>Load users from test CSV file!</h4>
+    <form method="post" action="/data/csv/users.csv" enctype="multipart/form-data">
+        <input type="submit" value="Load test data" />
     </form>
-
+    </div>
 
   <br/>
 

@@ -21,7 +21,6 @@
         <input type="submit" value="find">
         <br>
     </form>
-    <H3>Find user by name: </H3>
     <form action="/user/">
         Name:<br>
         <input type="text" name="name">
