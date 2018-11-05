@@ -64,7 +64,6 @@ public class DataUploadController {
             StreamSupport
                     .stream(Spliterators.spliteratorUnknownSize(reader, Spliterator.ORDERED), false)
                     .forEach(userService::register);
-            log.info("Number of Users after operation: " + userService.getAllUsers().size());
         } catch (IOException e) {
             log.error(e.getMessage());
         }

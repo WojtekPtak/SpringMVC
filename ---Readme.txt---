@@ -14,7 +14,11 @@ PDF view only as a test in Auditorium list
 
 HandlerExceptionResolver used in project
 
-slf4j logger doesn't work for the time being
+slf4j logger doesn't work for the time being o Tomcat (missing jars in WEB-INF/lib?)
+
+
+I'VE NOTICE THAT SEARCHING IN USERS BY USER_NAME DOESN'T WORK AND ALWAYS RETURNS ALL RECORDS (DAO PROBLEM?)
+The problem exists also in initial application Spring Adv template.zip when we add third user
 
 TODO:
 - add all Booking features!
