@@ -1,4 +1,4 @@
-package beans.springmvc;
+package beans.springmvc.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -34,5 +34,17 @@ public class WebAppConfiguration extends WebMvcConfigurerAdapter {
         freeMarkerConfigurer.setTemplateLoaderPath("/WEB-INF/views/ftl/");
         return freeMarkerConfigurer;
     }
+
+/*
+    private AuthenticationSuccessHandler successHandler() {
+        return new MySimpleUrlAuthenticationSuccessHandler();
+    }
+
+    @Bean
+    public HttpSessionEventPublisher httpSessionEventPublisher() {
+        return new HttpSessionEventPublisher();
+    }
+
+*/
 
 }

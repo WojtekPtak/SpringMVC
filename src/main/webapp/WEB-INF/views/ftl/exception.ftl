@@ -1,13 +1,13 @@
 <html>
 <head>
 <title>Exception Report</title>
-    <#include "/common/style.ftl">
+    <#include "./common/style.ftl">
 </head>
 
 <body>
 <div id="header">
     <h2> Exception Report </h2>
-<#include "/common/back_home.ftl">
+<#include "./common/back_home.ftl">
 </div>
 
 

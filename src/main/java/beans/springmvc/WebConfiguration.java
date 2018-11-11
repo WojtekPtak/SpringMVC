@@ -1,5 +1,6 @@
 package beans.springmvc;
 
+import beans.springmvc.configuration.WebAppConfiguration;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class WebConfiguration extends AbstractAnnotationConfigDispatcherServletInitializer {

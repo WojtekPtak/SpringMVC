@@ -1,7 +1,7 @@
 <html>
 <head><title>Booking</title>
 
-<#include "/common/style.ftl">
+<#include "./common/style.ftl">
     </head>
 <body>
 <div id="header">

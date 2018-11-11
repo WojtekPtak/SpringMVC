@@ -29,6 +29,7 @@ public interface UserDAO {
         if (Objects.isNull(user)) {
             throw new NullPointerException("User is [null]");
         }
+        //TODO: roles ?
         if (Objects.isNull(user.getEmail())) {
             throw new NullPointerException("User's email is [null]. User: [" + user + "]");
         }

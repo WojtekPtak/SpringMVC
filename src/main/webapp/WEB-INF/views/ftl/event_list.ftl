@@ -1,13 +1,13 @@
 <html>
 <head><title>Users manager</title>
-<#include "/common/style.ftl">
+<#include "./common/style.ftl">
     </head>
 <body>
 <div id="header">
     <H2>
         Users manager
     </H2>
-<#include "/common/back_home.ftl">
+<#include "./common/back_home.ftl">
 </div>
 
 <div id="content">

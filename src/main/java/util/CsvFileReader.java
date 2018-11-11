@@ -33,7 +33,6 @@ public class CsvFileReader {
 
     public <T> MappingIterator<T> open(File inputFile, Class<T> clazz) {
 
-        System.out.println();
         try {
             File file = inputFile.getAbsoluteFile();
             if(!file.exists()) {
