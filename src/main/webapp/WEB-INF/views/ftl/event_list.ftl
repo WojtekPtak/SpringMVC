@@ -5,7 +5,7 @@
 <body>
 <div id="header">
     <H2>
-        Users manager
+        Events manager
     </H2>
 <#include "./common/back_home.ftl">
 </div>

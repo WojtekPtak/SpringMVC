@@ -14,7 +14,7 @@
 <br>
 <div id="exception">
     <h4> Message:</h4>
-    <p>${message}</p>
+    <p>${message!'N/A'}</p>
     <h4>Description:</h4>
     <p>${description}</p>
 </div>
