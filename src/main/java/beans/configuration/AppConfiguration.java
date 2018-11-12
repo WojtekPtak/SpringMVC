@@ -10,7 +10,7 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
  * Date: 21/2/16
  * Time: 1:12 PM
  */
-@Configuration
+@Configuration  //TODO:
 public class AppConfiguration {
 
     @Bean

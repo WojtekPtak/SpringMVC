@@ -4,6 +4,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static beans.models.UserRole.REGISTERED_USER;
 
@@ -87,6 +89,10 @@ public class User {
 
     public String getRoles() {
         return roles;
+    }
+
+    public List<UserRole> getRolesList() {
+        return Arrays.stream(UserRole.values()).collect(Collectors.toList());
     }
 
     public boolean setRoles(String roles) {

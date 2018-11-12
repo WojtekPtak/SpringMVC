@@ -14,7 +14,7 @@
 </div>
 
 <#if model["userList"] ??>
-    <#include "user_list.ftl">
+    <#include "common/user_list.ftl">
 <#else>
     <div id="error">
     <h3 >

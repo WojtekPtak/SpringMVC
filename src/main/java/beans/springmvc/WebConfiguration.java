@@ -1,13 +1,17 @@
 package beans.springmvc;
 
+import beans.springmvc.configuration.SecurityConfig;
 import beans.springmvc.configuration.WebAppConfiguration;
+import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import javax.servlet.Filter;
 
 public class WebConfiguration extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[]{WebAppConfiguration.class};
+        return null;//new Class[]{WebAppConfiguration.class};
     }
 
     @Override
@@ -15,9 +19,15 @@ public class WebConfiguration extends AbstractAnnotationConfigDispatcherServletI
         return new String[]{"/"};
     }
 
-    @Override
     protected Class<?>[] getRootConfigClasses() {
-        return null;
+        return new Class[] {SecurityConfig.class, WebAppConfiguration.class};
+    }
+
+    @Override
+    protected javax.servlet.Filter[] getServletFilters() {
+        DelegatingFilterProxy delegateFilterProxy = new DelegatingFilterProxy();
+        delegateFilterProxy.setTargetBeanName("loggingFilter");
+        return new Filter[]{delegateFilterProxy};
     }
 
 }

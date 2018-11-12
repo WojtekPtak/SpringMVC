@@ -13,14 +13,19 @@ public class MainController {
     Logger log = LoggerFactory.getLogger(MainController.class);
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String home() {
-        return "redirect:/index";
+    public String login() {
+        return "redirect:/login";
     }
 
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index() {
         return "index";
+    }
+
+    @RequestMapping(value = "/about", method = RequestMethod.GET)
+    public String about() {
+        return "about";
     }
 
     @RequestMapping(value = "favicon.ico", method = RequestMethod.GET)

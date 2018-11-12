@@ -1,25 +1,19 @@
 
 
 ####
-I had too little time :/
-I used my private Mac (I had problem with date format - maybe cause my OS?) with IntelliJ trial (only to have Tomcat plugin)
+OK - I failed :(
+
+BUT:
+Bean for security is created and works
+I've added roles and password files to User
 
 
-I'm not very familiar with frontend :)
-I've tried no to create too many ftl/html files - I've just reused already created - sorry
+but for the time being I've adedd users only in code
 
-Users list can be loaded from fixed CSV file - but I suspect preloading page in DataUploadController is not optimal
+        auth.inMemoryAuthentication()
+            .withUser("user1").password("pass1").roles("REGISTERED_USER")
+            .and()
+            .withUser("user2").password("pass2").roles("REGISTERED_USER")
+            .and()
+            .withUser("admin").password("admin123").roles("BOOKING_MANAGER");
 
-PDF view only as a test in Auditorium list
-
-HandlerExceptionResolver used in project
-
-slf4j logger doesn't work for the time being o Tomcat (missing jars in WEB-INF/lib?)
-
-
-I'VE NOTICE THAT SEARCHING IN USERS BY USER_NAME DOESN'T WORK AND ALWAYS RETURNS ALL RECORDS (DAO PROBLEM?)
-The problem exists also in initial application Spring Adv template.zip when we add third user
-
-TODO:
-- add all Booking features!
-- exception page should return to previous page not to home

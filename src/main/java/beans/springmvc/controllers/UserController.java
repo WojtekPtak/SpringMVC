@@ -28,9 +28,10 @@ public class UserController {
     private UserService userService;
 
 
-    @RequestMapping(value = "/users", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin/users", method = RequestMethod.GET)
     public String usersMain(@ModelAttribute("model") ModelMap model) {
         log.info("Show all users");
+        //userService.register(new User(""));
         model.addAttribute("userList", userService.getAllUsers());
         return "user_main";
     }

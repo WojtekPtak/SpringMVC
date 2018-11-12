@@ -13,7 +13,7 @@
     <div id="header">
         <H2>User</H2>
     </div>
-    <A href="/users">Management</A></BR>
+    <A href="/admin/users">Management</A></BR>
     <H3>Find user by: </H3>
     <form action="/user/email/">
         Email:<br>
@@ -46,7 +46,7 @@
 
         <div id="header">
             <H2>Event</H2>
-            <A href="/events">Management</A></BR>
+            <A href="/admin/events">Management</A></BR>
         </div>
 
         <div id="header">

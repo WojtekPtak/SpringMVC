@@ -28,7 +28,9 @@ public class UserServiceImpl implements UserService {
     }
 
     public User register(User user) {
-        return userDAO.create(user);
+        //TODO: test!
+        User test = userDAO.create(user);
+        return test;
     }
 
     public void remove(User user) {
@@ -45,6 +47,14 @@ public class UserServiceImpl implements UserService {
 
     public List<User> getUsersByName(String name) {
         return userDAO.getAllByName(name);
+    }
+
+    public User getUserByName(String name) {
+        List<User> users = userDAO.getAllByName(name);
+        if(users.size()==1) {
+            return users.get(0);
+        }
+        return null;
     }
 
     @Override
