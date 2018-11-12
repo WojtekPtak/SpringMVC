@@ -53,5 +53,8 @@
             <H2>Ticket</H2>
         </div>
 
+        <H3>
+            <A href="/user_logout">L O G O U T</A></BR>
+        </H3>
 </body>
 </html>

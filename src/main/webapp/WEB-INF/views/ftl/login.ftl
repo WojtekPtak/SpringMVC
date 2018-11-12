@@ -8,7 +8,7 @@
 <body>
 <div id="header">
 <H2>
-    Login to System
+    Login to System (use user1/pass1 to login easily)
 </H2>
 </div>
 

@@ -17,3 +17,4 @@ but for the time being I've adedd users only in code
             .and()
             .withUser("admin").password("admin123").roles("BOOKING_MANAGER");
 
+Management pages are available only for admin

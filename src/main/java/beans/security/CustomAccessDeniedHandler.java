@@ -22,7 +22,7 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler {
         if (auth != null) {
             log.warn("User: " + auth.getName() + " has no access to: " + request.getRequestURI());
         }
-        response.sendRedirect(request.getContextPath() + "/accessDenied");
+        response.sendRedirect(request.getContextPath() + "/login_failure");
     }
 
 }
