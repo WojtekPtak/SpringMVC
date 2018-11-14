@@ -1,0 +1,5 @@
+name, rate, basePrice, dateTime, auditorium
+"The revenant","HIGH",60,"2016-07-02 09:00:00","Yellow hall"
+"The revenant","HIGH",60,"2016-04-04 18:00:00","Blue hall"
+"The revenant","HIGH",90,"2016-02-16 12:00:00","Red hall"
+"The revenant","HIGH",150,"2016-10-06 13:00:00","Yellow hall"

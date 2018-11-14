@@ -1,5 +1,8 @@
 package beans.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDateTime;
 
 /**
@@ -14,6 +17,11 @@ public class Event {
     private String        name;
     private Rate          rate;
     private double        basePrice;
+
+
+    //@DateTimeFormat(iso = DateTimeFormatter.ISO_LOCAL_DATE_TIME)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime dateTime;
     private Auditorium    auditorium;
 

@@ -3,10 +3,10 @@ package util;
 
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.MappingIterator;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvParser;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -26,7 +26,8 @@ public class CsvFileReader {
         mapper = new CsvMapper();
         mapper.enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES);
         mapper.enable(CsvParser.Feature.TRIM_SPACES);
-        mapper.registerModule(new JavaTimeModule());
+        mapper.findAndRegisterModules();
+        mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false); //Optional
 
         schema = CsvSchema.emptySchema().withHeader();
     }

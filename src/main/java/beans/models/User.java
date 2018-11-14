@@ -24,7 +24,7 @@ public class User {
     private String    roles;
 
     // TODO: problem to solve: without it (and only with specified date format!) binding date in FreeMarker causes error :/
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate birthday;
 
     public User() {

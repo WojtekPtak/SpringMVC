@@ -11,6 +11,16 @@
 <div id="content2">
 
     <div id="header">
+        <H2>Bulkloading</H2>
+    </div>
+    <div id="content2">
+        <h4>Load users and events from test CSV files!</h4>
+        <form method="post" action="/data/csv">
+            <input type="submit" value="Load test data" />
+        </form>
+    </div>
+
+    <div id="header">
         <H2>User</H2>
     </div>
     <A href="/admin/users">Management</A></BR>

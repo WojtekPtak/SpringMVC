@@ -25,12 +25,7 @@
     </form>
 </fieldset>
 
-    <div id="content2">
-    <h4>Load users from test CSV file!</h4>
-    <form method="post" action="/data/csv/users.csv" enctype="multipart/form-data">
-        <input type="submit" value="Load test data" />
-    </form>
-    </div>
+
 
   <br/>
 
