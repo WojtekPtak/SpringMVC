@@ -46,7 +46,7 @@ public class CsvServiceImplTest {
 
             }
         }
-        assertEquals("Wrong number of loaded users!", counter, expected);
+        assertEquals("Wrong number of loaded records!", expected, counter);
     }
 
     @Test

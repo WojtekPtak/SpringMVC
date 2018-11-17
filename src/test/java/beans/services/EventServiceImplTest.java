@@ -57,8 +57,7 @@ public class EventServiceImplTest {
     @Qualifier("testHall2")
     Auditorium auditorium2;
 
-    private final Event testEvent = new Event(UUID.randomUUID().toString(), Rate.HIGH, 1321, LocalDateTime.now(),
-                                                     null);
+    private final Event testEvent = new Event(UUID.randomUUID().toString(), Rate.HIGH, 1321, LocalDateTime.now(), "");
 
     @Autowired
     @Value("#{testEventDAOMock}")

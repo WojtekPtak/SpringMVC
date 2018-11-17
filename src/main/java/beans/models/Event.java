@@ -1,7 +1,9 @@
 package beans.models;
 
+import beans.services.AuditoriumService;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
 
@@ -11,6 +13,8 @@ import java.time.LocalDateTime;
  * Date: 2/1/2016
  * Time: 7:42 PM
  */
+
+//@JsonIgnoreProperties(ignoreUnknown = true)
 public class Event {
 
     private long          id;
@@ -18,14 +22,25 @@ public class Event {
     private Rate          rate;
     private double        basePrice;
 
-
-    //@DateTimeFormat(iso = DateTimeFormatter.ISO_LOCAL_DATE_TIME)
-    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime dateTime;
-    private Auditorium    auditorium;
+
+    // TODO: from csv file we have only auditorium name - modify parser not model!
+    @Autowired
+    private AuditoriumService auditoriumService;
+
+    @JsonIgnore
+    private Auditorium auditorium;
 
     public Event() {
+    }
+
+    public Event(String name, Rate rate, double basePrice, LocalDateTime dateTime, String auditoriumName) {
+        this(-1, name, rate, basePrice, dateTime, null);
+        if(!auditoriumName.isEmpty()) {
+            Auditorium auditorium = auditoriumService.getByName(auditoriumName);
+            setAuditorium(auditorium);
+        }
     }
 
     public Event(String name, Rate rate, double basePrice, LocalDateTime dateTime, Auditorium auditorium) {
