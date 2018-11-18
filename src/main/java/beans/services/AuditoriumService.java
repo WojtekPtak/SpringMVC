@@ -12,6 +12,9 @@ import java.util.List;
  */
 public interface AuditoriumService {
 
+    //TODO: we can add the same auditorium twice! FixIt!
+    Auditorium add(Auditorium auditorium);
+
     List<Auditorium> getAuditoriums();
 
     Auditorium getByName(String name);

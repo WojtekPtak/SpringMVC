@@ -27,6 +27,11 @@ public class AuditoriumServiceImpl implements AuditoriumService {
     }
 
     @Override
+    public Auditorium add(Auditorium auditiorium) {
+        return auditoriumDAO.add(auditiorium);
+    }
+
+    @Override
     public List<Auditorium> getAuditoriums() {
         return auditoriumDAO.getAll();
     }

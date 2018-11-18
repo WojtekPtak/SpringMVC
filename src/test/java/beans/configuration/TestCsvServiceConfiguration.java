@@ -1,15 +1,14 @@
 package beans.configuration;
 
+import beans.daos.AuditoriumDAO;
 import beans.daos.EventDAO;
 import beans.daos.UserAccountDAO;
+import beans.daos.mocks.AuditoriumDAOMock;
 import beans.daos.mocks.EventDAOMock;
 import beans.daos.mocks.UserAccountDAOMock;
 import beans.daos.mocks.UserDAOMock;
 import beans.services.*;
-import beans.services.csv.CsvService;
-import beans.services.csv.EventCsvService;
-import beans.services.csv.UserAccountCsvService;
-import beans.services.csv.UserCsvService;
+import beans.services.csv.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import util.CsvFileReader;
@@ -35,6 +34,13 @@ public class TestCsvServiceConfiguration {
     }
 
     @Bean
+    public AuditoriumDAO auditoriumDAOMock() {
+        return new AuditoriumDAOMock(Collections.emptyList());
+    }
+
+
+
+    @Bean
     public UserService userServiceImpl() {
         return new UserServiceImpl(userDAO());
     }
@@ -48,6 +54,12 @@ public class TestCsvServiceConfiguration {
     public UserAccountService accountServiceImpl() {
         return new UserAccountServiceImpl(accountDAOMock());
     }
+
+    @Bean
+    public AuditoriumService auditoriumServiceImpl() {
+        return new AuditoriumServiceImpl(auditoriumDAOMock());
+    }
+
 
 
     @Bean
@@ -64,6 +76,12 @@ public class TestCsvServiceConfiguration {
     public CsvService accountCsvService() {
         return new UserAccountCsvService();
     }
+
+    @Bean
+    public CsvService auditoriumCsvService() {
+        return new AuditoriumCsvService();
+    }
+
 
 
     @Bean

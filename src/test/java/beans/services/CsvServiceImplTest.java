@@ -5,7 +5,6 @@ import beans.configuration.TestCsvServiceConfiguration;
 import beans.configuration.db.DataSourceConfiguration;
 import beans.configuration.db.DbSessionFactory;
 import beans.services.csv.CsvService;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +23,13 @@ public class CsvServiceImplTest {
 
     private final File csvDir;
 
+
+
     @Autowired
     private CsvService userCsvService;
+
+    @Autowired
+    private CsvService auditoriumCsvService;
 
     @Autowired
     private CsvService eventCsvService;
@@ -64,12 +68,11 @@ public class CsvServiceImplTest {
         loadCsvData("users.csv", userCsvService, 11);
         // add accounts for loaded users
         loadCsvData("accounts.csv", accountCsvService, 11);
-
     }
 
     @Test
-    @Ignore
     public void loadEventCsvData() {
-        loadCsvData("events.csv", eventCsvService, 21);
+        loadCsvData("auditorias.csv", auditoriumCsvService, 3);
+        loadCsvData("events.csv", eventCsvService, 4);
     }
 }

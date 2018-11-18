@@ -37,7 +37,6 @@ public class UserAccountCsvService implements CsvService {
         try (MappingIterator<UserAccountBuilder> reader = csvFileReader.open(csvFile, UserAccountBuilder.class)) {
            StreamSupport
                     .stream(Spliterators.spliteratorUnknownSize(reader, Spliterator.ORDERED), false)
-                   //.map( csv -> csv.build())
                     .forEach( csv -> accountService.create(csv.build(userService)));
 
         } catch (IOException e) {

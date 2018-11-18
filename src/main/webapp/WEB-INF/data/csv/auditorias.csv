@@ -1,0 +1,4 @@
+name, seatsNumber, vipSeats
+"Blue hall II", 50, "25,26,27"
+"Red hall II", 80, "25,26,27,28"
+"Yellow hall II", 100, "25,26,27,28,29"
