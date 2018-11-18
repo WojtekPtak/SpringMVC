@@ -1,21 +1,24 @@
 Student: Wojciech Ptak
 
 
-####
-OK - I failed :(
+Task description:
 
-BUT:
-Bean for security is created and works
-I've added roles and password files to User
+1. Add new entity to the application - UserAccount, it should store the amount of prepaid money user has in the system,
+which should be used during booking procedure.
+DONE
 
+Add methods for refilling the account to the BookingFacade class.
+-
 
-but for the time being I've adedd users only in code
+Add DAO and service objects for new entity.
+DONE
 
-        auth.inMemoryAuthentication()
-            .withUser("user1").password("pass1").roles("REGISTERED_USER")
-            .and()
-            .withUser("user2").password("pass2").roles("REGISTERED_USER")
-            .and()
-            .withUser("admin").password("admin123").roles("BOOKING_MANAGER");
+Add ticketPrice field to Event entity.
+-
 
-Management pages are available only for admin
+2. Update ticket booking methods to check and withdraw money from user account according to the ticketPrice for particular event.
+
+3. Configure appropriate PlatformTransactionManager implementation in Spring application context.
+IT WAS NOT ALREADY DONE?
+
+4. Make ticket booking methods transactional using Spring declarative transactions management (either xml or annotation based config).

@@ -46,6 +46,7 @@ public class UserAccountCsvService implements CsvService {
         return accountService.getAllAccounts().size() - counter;
     }
 
+    // Added to load data from CSV files when UserName is a string and we need to convert it to User Object
     private static class UserAccountBuilder {
         private String userName;
         private Double balance;

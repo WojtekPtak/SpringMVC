@@ -24,9 +24,7 @@ public class UserAccountDAOImpl extends AbstractDAO implements UserAccountDAO {
                                   account.getUser()));
         } else {
             Long accountId = (Long) getCurrentSession().save(account);
-            //TODO: test!
-            UserAccount test = account.withId(accountId);
-            return test;
+            return account.withId(accountId);
         }
     }
 

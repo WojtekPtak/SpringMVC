@@ -29,9 +29,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public User register(User user) {
-        //TODO: test!
-        User test = userDAO.create(user);
-        return test;
+        return userDAO.create(user);
     }
 
     public void remove(User user) {
@@ -55,7 +53,6 @@ public class UserServiceImpl implements UserService {
         if(!users.isEmpty()) {
             // TODO: always returns all Users - fix it instead the workaround below!
             Optional<User> user = users.stream().filter(u -> name.equals(u.getName())).findFirst();
-            //TODO: use new Java language features
             return user.isPresent() ? user.get() : null;
         }
         return null;

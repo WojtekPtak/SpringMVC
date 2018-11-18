@@ -38,8 +38,7 @@ public class CsvServiceImplTest {
     private CsvService accountCsvService;
 
     public CsvServiceImplTest() {
-        //TODO: path from context
-        String dataDirectory = "/Users/wojcptak/Develop/Epam/laory-spring-course-dcd507d35a13/src/main/webapp/WEB-INF/data/csv";
+        String dataDirectory = "src/main/webapp/WEB-INF/data/csv";
         csvDir = new File(dataDirectory);
     }
 

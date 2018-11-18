@@ -25,9 +25,7 @@ public class UserAccountServiceImpl implements UserAccountService {
 
     @Override
     public UserAccount create(UserAccount account) {
-        //TODO: test!
-        UserAccount test = accountDAO.create(account);
-        return test;
+        return accountDAO.create(account);
     }
 
     @Override
