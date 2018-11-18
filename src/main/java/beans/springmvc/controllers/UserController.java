@@ -2,6 +2,8 @@ package beans.springmvc.controllers;
 
 import beans.daos.UserDAO;
 import beans.models.User;
+import beans.models.UserAccount;
+import beans.services.UserAccountService;
 import beans.services.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,12 +29,16 @@ public class UserController {
     @Qualifier("userServiceImpl")
     private UserService userService;
 
+    @Autowired
+    @Qualifier("userAccountServiceImpl")
+    private UserAccountService userAccountService;
 
     @RequestMapping(value = "/admin/users", method = RequestMethod.GET)
     public String usersMain(@ModelAttribute("model") ModelMap model) {
         log.info("Show all users");
         //userService.register(new User(""));
         model.addAttribute("userList", userService.getAllUsers());
+        model.addAttribute("accountList", userAccountService.getAllAccounts());
         return "user_main";
     }
 
@@ -41,6 +47,7 @@ public class UserController {
         log.info("Show user '{}'", name);
         List<User> users = userService.getUsersByName(name);
         model.addAttribute("userList", users);
+        model.addAttribute("accountList", userAccountService.getAllAccounts());
         return "user_search";
     }
 
@@ -54,6 +61,7 @@ public class UserController {
             model.addAttribute("userList", users);
         }
         model.addAttribute("userList");
+        model.addAttribute("accountList", userAccountService.getAllAccounts());
         return "user_search";
     }
 
@@ -64,8 +72,8 @@ public class UserController {
         UserDAO.validateUser(user);
         log.info("Register new user {}", user);
         userService.register(user);
-
-        return "redirect:/users";
+        userAccountService.create(new UserAccount(user));
+        return "redirect:/admin/users";
     }
 
 

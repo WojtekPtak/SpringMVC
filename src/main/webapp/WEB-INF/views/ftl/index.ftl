@@ -14,7 +14,7 @@
         <H2>Bulkloading</H2>
     </div>
     <div id="content2">
-        <h4>Load users and events from test CSV files!</h4>
+        <h4>Load users, events and users' accounts from test CSV files!</h4>
         <form method="post" action="/data/csv">
             <input type="submit" value="Load test data" />
         </form>

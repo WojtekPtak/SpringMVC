@@ -35,15 +35,14 @@ public class DataUploadController {
 
 
     @RequestMapping(value = "/csv", method = RequestMethod.POST)
-    public String downloadUsersFile(HttpServletRequest req, HttpServletResponse resp
-                                    ) throws IOException {
-
+    public String downloadUsersFile(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        log.info("Start bulkloading data from CSV files...");
         csvDir = req.getServletContext().getRealPath("/WEB-INF/data/csv/");
 
         loadData(userCsvService, "users.csv");
         loadData(userAccountCsvService, "accounts.csv");
         loadData(eventCsvService, "events.csv");
-
+        log.info("Data from CSV files bulkloaded!");
         return "redirect:/index";
     }
 
