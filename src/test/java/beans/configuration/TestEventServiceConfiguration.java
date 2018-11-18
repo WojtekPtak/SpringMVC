@@ -52,4 +52,5 @@ public class TestEventServiceConfiguration extends TestAuditoriumConfiguration {
     public EventService eventServiceImpl() {
         return new EventServiceImpl(eventDAOMock());
     }
+
 }

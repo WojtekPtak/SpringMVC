@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created with IntelliJ IDEA.
@@ -51,8 +52,11 @@ public class UserServiceImpl implements UserService {
 
     public User getUserByName(String name) {
         List<User> users = userDAO.getAllByName(name);
-        if(users.size()==1) {
-            return users.get(0);
+        if(!users.isEmpty()) {
+            // TODO: always returns all Users - fix it instead the workaround below!
+            Optional<User> user = users.stream().filter(u -> name.equals(u.getName())).findFirst();
+            //TODO: use new Java language features
+            return user.isPresent() ? user.get() : null;
         }
         return null;
     }

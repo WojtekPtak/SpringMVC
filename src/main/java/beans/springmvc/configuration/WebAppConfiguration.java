@@ -57,7 +57,7 @@ public class WebAppConfiguration extends WebMvcConfigurerAdapter {
     }
 
 */
-    //H2O console
+    //H2O console: jdbc:h2:~/data/spring-db    sa/
     @Bean(initMethod="start", destroyMethod="stop")
     public Server h2Console () throws SQLException {
         return Server.createWebServer("-web","-webAllowOthers","-webDaemon","-webPort", "8084");

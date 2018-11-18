@@ -17,6 +17,7 @@ public class Event {
     private String        name;
     private Rate          rate;
     private double        basePrice;
+    //private double        ticketPrice;
 
 
     //@DateTimeFormat(iso = DateTimeFormatter.ISO_LOCAL_DATE_TIME)

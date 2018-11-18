@@ -21,6 +21,7 @@ public interface UserDAO {
 
     User getByEmail(String email);
 
+    //TODO: implementation (H2O) returns ALL USERS!
     List<User> getAllByName(String name);
 
     List<User> getAll();

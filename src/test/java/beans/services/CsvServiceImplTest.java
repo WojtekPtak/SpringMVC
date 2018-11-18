@@ -5,6 +5,7 @@ import beans.configuration.TestCsvServiceConfiguration;
 import beans.configuration.db.DataSourceConfiguration;
 import beans.configuration.db.DbSessionFactory;
 import beans.services.csv.CsvService;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,9 @@ public class CsvServiceImplTest {
     @Autowired
     private CsvService eventCsvService;
 
+    @Autowired
+    private CsvService accountCsvService;
+
     public CsvServiceImplTest() {
         //TODO: path from context
         String dataDirectory = "/Users/wojcptak/Develop/Epam/laory-spring-course-dcd507d35a13/src/main/webapp/WEB-INF/data/csv";
@@ -46,7 +50,7 @@ public class CsvServiceImplTest {
 
             }
         }
-        assertEquals("Wrong number of loaded users!", counter, expected);
+        assertEquals("Wrong number of loaded records!", expected, counter);
     }
 
     @Test
@@ -55,6 +59,16 @@ public class CsvServiceImplTest {
     }
 
     @Test
+    public void loadAccountsCsvData() {
+        // first load users
+        loadCsvData("users.csv", userCsvService, 11);
+        // add accounts for loaded users
+        loadCsvData("accounts.csv", accountCsvService, 11);
+
+    }
+
+    @Test
+    @Ignore
     public void loadEventCsvData() {
         loadCsvData("events.csv", eventCsvService, 21);
     }
