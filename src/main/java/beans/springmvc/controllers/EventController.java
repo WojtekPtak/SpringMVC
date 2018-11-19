@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/admin")
 public class EventController {
 
     Logger log = LoggerFactory.getLogger(EventController.class);
@@ -47,7 +46,7 @@ public class EventController {
     }
 
 
-    @RequestMapping(value = "/event_register", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/event_register", method = RequestMethod.POST)
     public String addEvent(@ModelAttribute("event") Event event) {
         log.info("Register new event ?");
 

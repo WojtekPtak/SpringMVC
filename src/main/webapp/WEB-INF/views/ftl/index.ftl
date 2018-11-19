@@ -56,7 +56,7 @@
 
         <div id="header">
             <H2>Event</H2>
-            <A href="/admin/events">Management</A></BR>
+            <A href="/events">Management</A></BR>
         </div>
 
         <div id="header">

@@ -14,7 +14,7 @@
 
     <fieldset>
         <legend>Event registration</legend>
-        <form name="event" action="/event_register" method="post">
+        <form name="event" action="/admin/event_register" method="post">
             Name: <input type="text" name="name" />
                 <br/>
             Rate: <select name="rate">
@@ -43,7 +43,7 @@
         </tr>
     <#list model["eventList"] as event>
 	  	<tr>
-            <td>${event.name}</td> <td>${event.rate}</td> <td>${event.basePrice}</td> <td>${event.dateTime}</td> <td>${event.auditorium.name}</td>
+            <td>${event.name}</td> <td>${event.rate}</td> <td>${event.basePrice}</td> <td>${event.dateTime?datetime.iso?string("dd-MM-yyyy HH:mm")}</td> <td>${event.auditorium.name}</td>
         </tr>
 	</#list>
     </table>
