@@ -16,7 +16,7 @@
     <div id="content2">
         <h4>Load users, events and users' accounts from test CSV files!</h4>
         <form method="post" action="/data/csv">
-            <input type="submit" value="Load test data" />
+            <input type="submit" style="font-size: larger; color: red; " value="Load test data" />
         </form>
     </div>
 
@@ -53,6 +53,8 @@
 
     <div id="header">
         <H2>Booking</H2>
+        <A href="/booking">Buy a ticket</A></BR>
+    </div>
 
         <div id="header">
             <H2>Event</H2>

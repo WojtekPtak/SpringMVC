@@ -1,5 +1,5 @@
 <html>
-<head><title>Users manager</title>
+<head><title>Events manager</title>
 <#include "./common/style.ftl">
     </head>
 <body>

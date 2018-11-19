@@ -17,7 +17,7 @@ public class Event {
     private String        name;
     private Rate          rate;
     private double        basePrice;
-    //private double        ticketPrice;
+    private double        ticketPrice;
 
 
     //@DateTimeFormat(iso = DateTimeFormatter.ISO_LOCAL_DATE_TIME)
@@ -40,6 +40,7 @@ public class Event {
         this.basePrice = basePrice;
         this.dateTime = dateTime;
         this.auditorium = auditorium;
+        this.ticketPrice = basePrice;
     }
 
     public Event withId(Long eventId) {
@@ -72,6 +73,10 @@ public class Event {
 
     public double getBasePrice() {
         return basePrice;
+    }
+
+    public double getTicketPrice() {
+        return ticketPrice;
     }
 
     public void setBasePrice(double basePrice) {

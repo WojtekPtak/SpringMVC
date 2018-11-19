@@ -51,7 +51,7 @@ public class EventController {
         log.info("Register new event ?");
 
         if (!event.getName().isEmpty()) {
-            log.info("Register new user {}", event);
+            log.info("Register new event {}", event);
             eventService.create(event);
         }
         return "redirect:/event_list";
